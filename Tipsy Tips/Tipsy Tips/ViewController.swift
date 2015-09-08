@@ -54,7 +54,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         
         // Check for user defaults
         var defaults = NSUserDefaults.standardUserDefaults()
-        var tip = defaults.stringForKey(defaultTipKey) ?? "20"
+        let tip = defaults.objectForKey(defaultTipKey) as? String ?? "20"
         if tip == "15" {
             tipControl.selectedSegmentIndex = 0
         } else if tip == "25" {
@@ -173,19 +173,39 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         super.viewDidAppear(animated)
         // Check for user defaults
         var defaults = NSUserDefaults.standardUserDefaults()
-        if let tip = defaults.objectForKey(defaultTipKey) as? String ?? "20" {
-            println(tip)
-            println("hey")
-            if tip == "15" {
-                tipControl.selectedSegmentIndex = 0
-            } else if tip == "25" {
-                tipControl.selectedSegmentIndex = 2
-            } else {
-                tipControl.selectedSegmentIndex = 1
-            }
+        let tip = defaults.objectForKey(defaultTipKey) as? String ?? "Nothing"
+        if tip == "15" {
+            tipControl.selectedSegmentIndex = 0
+        } else if tip == "25" {
+            tipControl.selectedSegmentIndex = 2
+        } else {
+            tipControl.selectedSegmentIndex = 1
         }
     
-        println(tipControl.selectedSegmentIndex)
+        println(tip)
+    }
+    
+    // testing
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        var defaults = NSUserDefaults.standardUserDefaults()
+        let tip = defaults.objectForKey(defaultTipKey) as? String ?? "Nothing"
+        println(tip)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        var defaults = NSUserDefaults.standardUserDefaults()
+        let tip = defaults.objectForKey(defaultTipKey) as? String ?? "Nothing"
+        println(tip)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        var defaults = NSUserDefaults.standardUserDefaults()
+        let tip = defaults.objectForKey(defaultTipKey) as? String ?? "Nothing"
+        println(tip)
     }
 }
 
