@@ -28,7 +28,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     @IBOutlet weak var threePplMessageButton: UIButton!
     @IBOutlet weak var fourPplMessageButton: UIButton!
     
-    let defaultTipKey = "defaultTip"
+    let defaultTipKey = "tipDefault"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,11 +119,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     @IBAction func onTwoPplMessage(sender: AnyObject) {
         // Check if able to send messages
         if MFMessageComposeViewController.canSendText() {
-            let messageVC = MFMessageComposeViewController()
-            messageVC.messageComposeDelegate = self
-            messageVC.recipients = ["Enter recipients"]
-            messageVC.body = "Hey bro, your share is \(twoPplTotalLabel.text)"
-            self.presentViewController(messageVC, animated: true, completion: nil)
+            self.sendMessage(2)
         } else {
             self.noMessages(self)
         }
@@ -132,11 +128,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     @IBAction func onThreePplMessage(sender: AnyObject) {
         // Check if able to send messages
         if MFMessageComposeViewController.canSendText() {
-            let messageVC = MFMessageComposeViewController()
-            messageVC.messageComposeDelegate = self
-            messageVC.recipients = ["Enter recipients"]
-            messageVC.body = "Hey bros, your share is \(threePplTotalLabel.text)"
-            self.presentViewController(messageVC, animated: true, completion: nil)
+            self.sendMessage(3)
         } else {
             self.noMessages(self)
         }
@@ -146,14 +138,25 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     @IBAction func onFourPplMessage(sender: AnyObject) {
         // Check if able to send messages
         if MFMessageComposeViewController.canSendText() {
-            let messageVC = MFMessageComposeViewController()
-            messageVC.messageComposeDelegate = self
-            messageVC.recipients = ["Enter recipients"]
-            messageVC.body = "Hey bros, your share is \(fourPplTotalLabel.text)"
-            self.presentViewController(messageVC, animated: true, completion: nil)
+            self.sendMessage(4)
         } else {
             self.noMessages(self)
         }
+    }
+    
+    func sendMessage(numOfPeople: Int) {
+        let messageVC = MFMessageComposeViewController()
+        messageVC.messageComposeDelegate = self
+        messageVC.recipients = ["Enter recipients"]
+        
+        if numOfPeople == 2 {
+            messageVC.body = "Hey bro, your share is \(twoPplTotalLabel.text)"
+        } else if numOfPeople == 3 {
+            messageVC.body = "Hey bros, your share is \(threePplTotalLabel.text)"
+        } else {
+            messageVC.body = "Hey bros, your share is \(fourPplTotalLabel.text)"
+        }
+        self.presentViewController(messageVC, animated: true, completion: nil)
     }
     
     func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
@@ -181,31 +184,6 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         } else {
             tipControl.selectedSegmentIndex = 1
         }
-    
-        println(tip)
-    }
-    
-    // testing
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        var defaults = NSUserDefaults.standardUserDefaults()
-        let tip = defaults.objectForKey(defaultTipKey) as? String ?? "Nothing"
-        println(tip)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        var defaults = NSUserDefaults.standardUserDefaults()
-        let tip = defaults.objectForKey(defaultTipKey) as? String ?? "Nothing"
-        println(tip)
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        var defaults = NSUserDefaults.standardUserDefaults()
-        let tip = defaults.objectForKey(defaultTipKey) as? String ?? "Nothing"
-        println(tip)
     }
 }
 
