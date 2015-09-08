@@ -173,7 +173,7 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         super.viewDidAppear(animated)
         // Check for user defaults
         var defaults = NSUserDefaults.standardUserDefaults()
-        let tip = defaults.objectForKey(defaultTipKey) as? String ?? "Nothing"
+        let tip = defaults.objectForKey(defaultTipKey) as? String ?? "20"
         if tip == "15" {
             tipControl.selectedSegmentIndex = 0
         } else if tip == "25" {
