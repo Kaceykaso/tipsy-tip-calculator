@@ -28,6 +28,8 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     @IBOutlet weak var threePplMessageButton: UIButton!
     @IBOutlet weak var fourPplMessageButton: UIButton!
     
+    let defaultTipKey = "defaultTip"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -49,6 +51,17 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         billField.layer.borderColor = UIColor( red: 0.94, green: 1.0, blue: 0.99, alpha: 1.0 ).CGColor
         billField.layer.cornerRadius = 3.0
         billField.layer.borderWidth = 2
+        
+        // Check for user defaults
+        var defaults = NSUserDefaults.standardUserDefaults()
+        var tip = defaults.stringForKey(defaultTipKey) ?? "20"
+        if tip == "15" {
+            tipControl.selectedSegmentIndex = 0
+        } else if tip == "25" {
+            tipControl.selectedSegmentIndex = 2
+        } else {
+            tipControl.selectedSegmentIndex = 1
+        }
 
     }
 
@@ -154,6 +167,25 @@ class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // Check for user defaults
+        var defaults = NSUserDefaults.standardUserDefaults()
+        if let tip = defaults.objectForKey(defaultTipKey) as? String ?? "20" {
+            println(tip)
+            println("hey")
+            if tip == "15" {
+                tipControl.selectedSegmentIndex = 0
+            } else if tip == "25" {
+                tipControl.selectedSegmentIndex = 2
+            } else {
+                tipControl.selectedSegmentIndex = 1
+            }
+        }
+    
+        println(tipControl.selectedSegmentIndex)
     }
 }
 

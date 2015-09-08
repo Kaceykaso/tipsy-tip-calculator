@@ -201,29 +201,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipsy Tips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f4Z-ep-Vsk">
-                                <rect key="frame" x="16" y="118" width="288" height="55"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f4Z-ep-Vsk">
+                                <rect key="frame" x="16" y="78" width="288" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
-                                <color key="textColor" red="0.76368170970000004" green="1" blue="0.72205688260000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This app is intended for use by those too tipsy to do math." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nFW-c9-Gpe">
-                                <rect key="frame" x="20" y="213" width="280" height="61"/>
+                                <rect key="frame" x="20" y="408" width="280" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.75344689099999995" green="1" blue="0.91470809710000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questions or concerns? Contact:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sWz-bi-Nrm">
-                                <rect key="frame" x="20" y="290" width="280" height="29"/>
+                                <rect key="frame" x="20" y="485" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.75344689099999995" green="1" blue="0.91470809710000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kaceycoughlin@mac.com" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LSm-Ix-PR3">
-                                <rect key="frame" x="20" y="316" width="280" height="29"/>
+                                <rect key="frame" x="20" y="511" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.75344689099999995" green="1" blue="0.91470809710000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -240,11 +240,57 @@
                                     <action selector="onBackButtonTap:" destination="gUH-EV-mtc" eventType="touchUpInside" id="Dko-5z-tVq"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip %:" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tIy-2d-age">
+                                <rect key="frame" x="16" y="152" width="120" height="29"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sB3-CT-aYa">
+                                <rect key="frame" x="20" y="189" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.76368170970000004" green="1" blue="0.72205688260000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="15%">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="on15tap:" destination="gUH-EV-mtc" eventType="touchUpInside" id="FTF-Wb-hSp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4dK-Ch-8lz">
+                                <rect key="frame" x="127" y="189" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.76368170970000004" green="1" blue="0.72205688260000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="20%">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="on20tap:" destination="gUH-EV-mtc" eventType="touchUpInside" id="r1I-Ir-ryC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sqs-4N-eCm">
+                                <rect key="frame" x="234" y="189" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.76368170970000004" green="1" blue="0.72205688260000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="25%">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="on25tap:" destination="gUH-EV-mtc" eventType="touchUpInside" id="yOC-cn-MgR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.28577698089999998" green="0.81936553030000003" blue="0.69102784390000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="a1X-xv-V1l" id="5Gq-JH-fdT"/>
+                        <outlet property="defaultTip15Button" destination="sB3-CT-aYa" id="Svf-Jt-vAz"/>
+                        <outlet property="defaultTip20Button" destination="4dK-Ch-8lz" id="iGn-vg-4o3"/>
+                        <outlet property="defaultTip25Button" destination="Sqs-4N-eCm" id="B8Q-Nd-Cva"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Kg-ie-pEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
