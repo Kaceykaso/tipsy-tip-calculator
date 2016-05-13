@@ -1,0 +1,5 @@
+language: objective-c
+xcode_project: Tipsy%20Tips.xcodeproj # path to your xcodeproj folder
+xcode_scheme: Tipsy%20Tips
+
+osx_image: xcode7.1
